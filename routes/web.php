@@ -23,3 +23,4 @@ Route::get('/categories', [Categories::class, 'index']);
 Route::get('/create-category', [Categories::class, 'create']);
 Route::post('/category-store', [Categories::class, 'store']);
 Route::get('/edit-category/{id}', [Categories::class, 'edit']);
+Route::put('/category-update/{id}', [Categories::class, 'update']);

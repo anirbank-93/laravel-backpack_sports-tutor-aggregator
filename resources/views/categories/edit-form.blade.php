@@ -12,8 +12,9 @@
 </head>
 <body>
     <div class="container">
-    <form method="POST" action="/category-store">
+    <form method="POST" action="/category-update/{{ $category->id }}">
         @csrf
+        @method('put')
         <div class="form-group">
             <label for="categoryName">Category name</label>
             <input type="text" class="form-control" id="categoryName" name="categoryName" value="{{ $category->title }}" placeholder="Enter category name">

@@ -38,4 +38,15 @@ class Categories extends Controller
         return view('categories/edit-form', ['category'=>$category]);
 
     }
+
+    public function update(Request $req,$id) {
+        $category = Category::where('id',$id)->first();
+
+        $category->title = $req->categoryName;
+        $category->description = $req->categoryDesc;
+
+        $category->save();
+
+        return redirect('/categories');
+    }
 }
