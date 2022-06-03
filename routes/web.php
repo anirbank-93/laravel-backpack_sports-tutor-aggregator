@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Categories;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/categories', function () {
-    return "All available categories to choose tutors from displayed here.";
-});
+Route::get('/categories', [Categories::class, 'index']);
+Route::get('/create-category', [Categories::class, 'create']);
+Route::post('/category-store', [Categories::class, 'store']);
+Route::get('/edit-category/{id}', [Categories::class, 'edit']);
