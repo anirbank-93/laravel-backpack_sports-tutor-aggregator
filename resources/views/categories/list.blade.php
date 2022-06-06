@@ -31,7 +31,7 @@
           <td>{{ $category->description }}</td>
           <td>
           <a href="/edit-category/{{ $category->id }}" class="btn btn-sm btn-info">Edit</a>
-          <button type="button" class="btn btn-sm btn-danger">Delete</button>
+          <a href="/delete-category/{{ $category->id }}" class="btn btn-sm btn-danger">Delete</a>
           </td>
       </tr>
       @endforeach

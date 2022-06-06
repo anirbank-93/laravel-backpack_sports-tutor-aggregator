@@ -49,4 +49,6 @@ class Categories extends Controller
 
         return redirect('/categories');
     }
+
+    public function delete($id) {}
 }
