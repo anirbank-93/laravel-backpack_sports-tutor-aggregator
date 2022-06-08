@@ -30,8 +30,15 @@
           <td>{{ $category->title }}</td>
           <td>{{ $category->description }}</td>
           <td>
-          <a href="/edit-category/{{ $category->id }}" class="btn btn-sm btn-info">Edit</a>
-          <a href="/delete-category/{{ $category->id }}" class="btn btn-sm btn-danger">Delete</a>
+            <a href="/edit-category/{{ $category->id }}" class="btn btn-sm btn-info">Edit</a>
+            <!-- <a href="/category-delete/{{ $category->id }}" class="btn btn-sm btn-danger">Delete</a> -->
+            
+            <form action="/category-delete/{{ $category->id }}" method="post">
+              @csrf
+              @method('delete')
+              <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            </form>
+
           </td>
       </tr>
       @endforeach

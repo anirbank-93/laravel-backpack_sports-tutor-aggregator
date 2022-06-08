@@ -50,5 +50,11 @@ class Categories extends Controller
         return redirect('/categories');
     }
 
-    public function delete($id) {}
+    public function destroy($id) {
+        $category = Category::where('id',$id)->first();  // whereId($id)
+
+        $category->delete();
+
+        return redirect('/categories');
+    }
 }
