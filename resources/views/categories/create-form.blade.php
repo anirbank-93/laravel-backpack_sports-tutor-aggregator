@@ -16,11 +16,17 @@
         @csrf
         <div class="form-group">
             <label for="categoryName">Category name</label>
-            <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Enter category name">
+            <input type="text" class="form-control" id="categoryName" name="title" value="{{ old('title') }}" placeholder="Enter category name">
+            @if($errors->has('title'))
+               <p class="text-danger">{{ $errors->first('title') }}</p>
+            @endif
         </div>
         <div class="form-group">
             <label for="categoryDesc">Category description</label>
-            <input type="text" class="form-control" id="categoryDesc" name="categoryDesc" placeholder="Category description">
+            <input type="text" class="form-control" id="categoryDesc" name="description" value="{{ old('description') }}" placeholder="Category description">
+            @if($errors->has('description'))
+               <p class="text-danger">{{ $errors->first('description') }}</p>
+            @endif
         </div>
         <!-- <div class="form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">

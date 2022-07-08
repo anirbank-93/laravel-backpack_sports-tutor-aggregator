@@ -20,10 +20,15 @@ class Categories extends Controller
 
     public function store(Request $req) {
         // dd($req->categoryName);
+        $req->validate([
+            'title'=>'required|unique:categories|max:255',
+            'description'=>'required'
+        ]);
+
         $category = new Category;
         
-        $category->title = $req->categoryName;
-        $category->description = $req->categoryDesc;
+        $category->title = $req->title;
+        $category->description = $req->description;
         $category->active = 1;
 
         $category->save();
@@ -42,8 +47,13 @@ class Categories extends Controller
     public function update(Request $req,$id) {
         $category = Category::where('id',$id)->first();
 
-        $category->title = $req->categoryName;
-        $category->description = $req->categoryDesc;
+        $req->validate([
+            'title'=>'required|unique:categories|max:255',
+            'description'=>'required'
+        ]);
+
+        $category->title = $req->title;
+        $category->description = $req->description;
 
         $category->save();
 

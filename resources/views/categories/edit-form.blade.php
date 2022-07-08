@@ -17,11 +17,17 @@
         @method('put')
         <div class="form-group">
             <label for="categoryName">Category name</label>
-            <input type="text" class="form-control" id="categoryName" name="categoryName" value="{{ $category->title }}" placeholder="Enter category name">
+            <input type="text" class="form-control" id="categoryName" name="title" value="{{ old('title') ? old('title') : $category->title }}" placeholder="Enter category name">
+            @if($errors->has('title'))
+               <p class="text-danger">{{ $errors->first('title') }}</p>
+            @endif
         </div>
         <div class="form-group">
             <label for="categoryDesc">Category description</label>
-            <input type="text" class="form-control" id="categoryDesc" name="categoryDesc" value="{{ $category->description }}" placeholder="Category description">
+            <input type="text" class="form-control" id="categoryDesc" name="description" value="{{ $category->description }}" placeholder="Category description">
+            @if($errors->has('description'))
+               <p class="text-danger">{{ $errors->first('description') }}</p>
+            @endif
         </div>
         <!-- <div class="form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
